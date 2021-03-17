@@ -1,11 +1,17 @@
+:root{
+    --effect: #b3d9ff;
+    --bg: #e6f7ff;
+    --text-color: #0f1419;
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family:'Times New Roman', Times, serif;
 }
+
 body {
-    background-color: #e6f7ff;
+    background-color: var(--bg);
 
     display: flex;
     flex-direction: column;
@@ -28,6 +34,62 @@ h2{
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    color: var(--text-color);
+}
+.toggle{
+    padding-right: 37.5%;
+    margin: 5px;
+}
+
+p{
+    text-align: center;
+    color: var(--text-color);
+}
+
+input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 52px;
+    height: 27px;
+    background: black;
+    float: right;
+    border-radius: 100px;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 90px;
+        transition: 0.3s;
+    }
+}
+
+input:checked + label {
+    background-color: #1da1f2;
+}
+
+input:checked + label::after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: 45px;
+}
+
+a svg.icons-btn {
+    fill: var(--text-color);
 }
 
 .icons-btn{
@@ -46,11 +108,11 @@ h2{
     margin: 25px 0;
     padding: 15px 25px;
 
-    border: 2px solid black;
+    border: 2px solid var(--text-color);
 
     overflow: hidden;
     position: relative;
-    color: black;
+    color: var(--text-color);
 
     &:before{
         content:'';
@@ -59,7 +121,7 @@ h2{
         width: 100%;
         height: 100%;
 
-        background-color: #b3d9ff;
+        background-color: var(--effect);
 
         z-index: -1;
 
